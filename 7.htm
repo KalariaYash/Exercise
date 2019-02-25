@@ -1,0 +1,58 @@
+<!-- Write a JavaScript program to find the number which appears most in a given array of integers. -->
+<!DOCTYPE html>
+<html>
+
+  <head> </head>
+
+  <body>
+    <script>
+       let array = [];
+       let i = 0;
+       let flag = false;
+       let tempararyKey;
+       let answer = new Array();
+       let max = 0;
+       let countMap = new Map();
+       while(true) {
+           array[i] = prompt( "Please Enter the value and to stop enter exit", 0 );
+           if (array[i] == "exit") {
+             array.pop();
+             break;
+           }
+           i++;
+       }
+       for (i=0; i< array.length; i++) {
+         countMap.set(array[i], 1);
+       }
+      for ( i=0; i < array.length; i++) {
+        for ( let key of countMap.keys()) {
+          if( key == array[i]) {
+              flag = true;
+              tempararyKey = key;
+          }
+          
+          }
+          if ( flag == true) {
+              countMap.set( tempararyKey , countMap.get(tempararyKey) + 1) ;
+        }
+      }
+       
+      for ( let key of countMap.keys() ) {
+          if( countMap.get(key) > max) {
+              max = countMap.get(key) ;
+          }
+      }
+      for ( let key of countMap.keys() ) {
+          if( countMap.get(key) == max) {
+              answer.push(key);
+          }
+      }
+      
+      for(i=0; i< answer.length; i++){
+        alert ( "Number that repeats maximum time is " + answer[i] + " and it repeats " + (countMap.get(answer[i])-1) + " times");
+      }
+
+    </script>
+  </body>
+
+</html>

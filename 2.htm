@@ -1,0 +1,25 @@
+<!-- Write a JavaScript program to create a new string from a given string changing the position of first and last characters. The string length must be greater than or equal to 1 -->
+<!DOCTYPE html>
+<html>
+
+  <head> </head>
+
+  <body>
+    <script>
+       let originalString = prompt( "Enter the string atleast of length 1", "Enter a string" );
+       if ( originalString == null ) {
+         alert ( "Please enter a valid string" );
+       }
+       else if ( originalString.length == 1 ) {
+         alert ( originalString );
+       }
+       else {
+         let last = originalString.charAt(originalString.length - 1) ;
+         let temporaryString = last + originalString.slice (1, originalString.length - 1) ;
+         let finalString = temporaryString.slice (0, temporaryString.length) + originalString.charAt(0);
+           alert (finalString);
+       }
+    </script>
+  </body>
+
+</html>

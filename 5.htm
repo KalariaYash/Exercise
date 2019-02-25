@@ -1,0 +1,18 @@
+<!-- Write a JavaScript program to rotate the elements left of a given array of integers of length 3. -->
+<!DOCTYPE html>
+<html>
+
+  <head> </head>
+
+  <body>
+    <script>
+       let array = [];
+       for (let i = 0; i <= 2; i++ ) {
+           array[i] = +prompt( "Please Enter the value", 0 );
+       }
+       array[2] = array.shift();
+       alert ( array );
+    </script>
+  </body>
+
+</html>

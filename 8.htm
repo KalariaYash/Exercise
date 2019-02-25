@@ -1,0 +1,63 @@
+<!-- Write a JavaScript program to find the number of times to replace a given number with the sum of its digits until it converts to a single digit number. -->
+<!DOCTYPE html>
+<html>
+
+  <head> </head>
+
+  <body>
+    <script>
+       let number = +prompt( "Enter a number", 0 );
+       let tempararyString = "";
+       let count = 0;
+       let flag = false;
+       let stringOfNumber = number.toString();
+       if( isNaN(number) ){
+           alert("Your entered number is not valid");
+       }
+       else if (number < 10) {
+           alert( "Number of steps required is 0");
+       }
+       else {
+           
+           while( true ) {
+               if (stringOfNumber.length % 2 == 0) {
+                   count++;
+                   console.log(count);
+                 for ( let i=0; i<stringOfNumber.length; i += 2) {
+                     let temp = parseInt(stringOfNumber.charAt(i)) + parseInt(stringOfNumber.charAt(i+1)) ;
+                     tempararyString +=  temp ;
+                 }
+                 stringOfNumber = tempararyString;
+                 tempararyString = "";
+                 if ( stringOfNumber.length == 1) {
+                        alert( "Number of steps required is " + count);
+                        flag = true;
+                        break;
+                     }   
+               }
+               else {
+                   count++;
+                for ( let i=0; i<stringOfNumber.length - 1; i += 2) {
+                     let temp = parseInt(stringOfNumber.charAt(i)) + parseInt(stringOfNumber.charAt(i+1)) ;
+                     tempararyString +=  temp ;
+                }  
+                  tempararyString += stringOfNumber.charAt( stringOfNumber.length - 1);
+                  stringOfNumber = tempararyString;
+                  tempararyString = "";
+                  if ( stringOfNumber.length == 1) {
+                        alert( "Number of steps required is " + count);
+                        flag = true;
+                        break;
+                     }   
+                  
+               }
+               if ( flag == true ) {
+                   break;
+               }
+           }
+       }
+
+    </script>
+  </body>
+
+</html>

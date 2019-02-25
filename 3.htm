@@ -1,0 +1,32 @@
+<!-- 3 Write a JavaScript program to check if the last digit of the three given positive integers is the same. -->
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" href="style.css">
+    
+  </head>
+
+  <body>
+    <script>
+       let first = +prompt ( "Enter the first positive non-zero number" );
+       let second = +prompt ( "Enter the second positive non-zero number" );
+       let third = +prompt ( "Enter the the third positive non-zero number");
+       if ( first == "" || isNaN(first) || second == "" || isNaN(second) || third == "" || isNaN(third) ){
+          alert ( "Please enter valid numbers" );
+       }
+       else {
+         first = first % 10;
+         second = second % 10; 
+         third = third % 10;
+         if ( first == second && first == third ) {
+           alert ( "last digits of the given numbers are equal" );
+         }
+         else {
+           alert ( "last digits of the given numbers are not equal" );
+         }
+       }
+    </script>
+  </body>
+
+</html>

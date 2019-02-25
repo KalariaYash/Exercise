@@ -1,0 +1,26 @@
+<!-- Write a JavaScript program to check whether a matrix is a diagonal matrix or not. In linear algebra, a diagonal matrix is a matrix in which the entries outside the main diagonal are all zero (the diagonal from the upper left to the lower right). -->
+<!DOCTYPE html>
+<html>
+
+  <head> </head>
+
+  <body>
+    <script>
+      let number = +prompt( "Enter a number" );
+      let binary;
+      if (isNaN(number)) {
+        alert ( "Please enter a valid number" );
+      }
+      else {
+      binary = number.toString(2);
+      let reversedBinary = "";
+      for (let i = binary.length-1; i >= 0; i--) {
+            reversedBinary += binary.charAt(i);   
+      }
+      alert( reversedBinary ); 
+      }
+
+    </script>
+  </body>
+
+</html>

@@ -1,0 +1,33 @@
+<!-- Write a JavaScript program to find the larger value between the first or last and set all the other elements with that value. -->
+<!DOCTYPE html>
+<html>
+
+  <head> </head>
+
+  <body>
+    <script>
+       let array = [];
+       let max;
+       let i = 0;
+       while(true) {
+           array[i] = prompt( "Please Enter the value and to stop enter exit", 0 );
+           if (array[i] == "exit") {
+             array.pop();
+             break;
+           }
+           i++;
+       }
+       if ( array[0] > array[array.length - 1]){
+           max = array[0];
+       }
+       else {
+           max = array[array.length - 1];
+       }
+       for (let i = 0; i < array.length; i++ ) {
+           array[i] = max ; 
+       }
+       alert ( array );
+    </script>
+  </body>
+
+</html>
