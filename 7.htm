@@ -29,12 +29,12 @@
           if( key == array[i]) {
               flag = true;
               tempararyKey = key;
+              countMap.set( tempararyKey , countMap.get(tempararyKey) + 1) ;
+
           }
           
           }
-          if ( flag == true) {
-              countMap.set( tempararyKey , countMap.get(tempararyKey) + 1) ;
-        }
+        
       }
        
       for ( let key of countMap.keys() ) {
@@ -56,3 +56,19 @@
   </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+a=[1,2,3,2,4]
+
+map[1]=1
