@@ -1,0 +1,21 @@
+<!-- Write a JavaScript function to check whether an `input` is an array or not. -->
+<!DOCTYPE html>
+<html>
+
+  <head> </head>
+
+  <body>
+    <script>
+       let array = [];
+       let str = "hello"
+       checkArrayOrNot(array);
+       checkArrayOrNot(str);
+
+       function checkArrayOrNot ( arr ) {
+           if ( Array.isArray(arr) )  alert( "Given input is Array" );
+           else alert( "Given input is not Array" );
+       }
+    </script>
+  </body>
+
+</html>

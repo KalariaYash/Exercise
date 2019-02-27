@@ -1,0 +1,44 @@
+<!-- Write a JavaScript function to remove a specific element from an array. -->
+<!DOCTYPE html>
+<html>
+
+  <head> </head>
+
+  <body>
+    <script>
+
+       let arr = new Array();
+       let i = 0;
+
+       while ( true ) {
+           arr[i] = prompt( "Please enter an array element and enter exit to stop" , 0);
+           while ( arr[i] == "" )  {
+              arr[i] = prompt( "Please enter non-empty array element and enter exit to stop" , "something");
+            }
+            
+            if (arr[i] == "exit") {
+                arr.pop();
+                break;
+            }
+            i++;
+        }
+
+        let temp = prompt ( "Please enter the element you want to remove" ) ;
+        alert ( removeSpecificElementFromArray( arr, temp)) ;
+
+        function removeSpecificElementFromArray ( array, element ) {
+            if ( array.indexOf(element) == -1) {
+                while ( true ) {
+                   temp = prompt ( "Please enter valid element you want to remove" ) ;
+                   if ( array.indexOf(temp) != -1) break;
+                }
+            }
+
+            array.splice ( arr.indexOf(temp), 1 ) ;
+            return array;
+        }
+
+    </script>
+  </body>
+
+</html>

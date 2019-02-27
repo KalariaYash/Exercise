@@ -1,0 +1,36 @@
+<!-- Write a JavaScript function to sort the following array of objects by title value.  -->
+<!DOCTYPE html>
+<html>
+
+  <head> </head>
+
+  <body>
+    <script>
+
+    let library = [ 
+        { author: 'Bill Gates', title: 'The Road Ahead', libraryID: 1254},
+        { author: 'Steve Jobs', title: 'Walter Isaacson', libraryID: 4264},
+        { author: 'Suzanne Collins', title: 'Mockingjay: The Final Book of The Hunger Games', libraryID: 3245}
+    ];
+    let i = 0;
+    
+    library = sortArrayOfObjectsByTitle(library );
+    
+    for ( i = 0; i < library.length; i++) {
+        for ( let key in library[i]) {
+            alert ( "Array[" + i + "]    " + key + " : " + library[i][key] );
+        }
+    }
+
+    function sortArrayOfObjectsByTitle( arr ) {
+       return arr.sort( function compare( a, b) {
+                            if (a.title > b.title) return 1;
+                            if (a.title == b.title) return 0;
+                            if (a.title < b.title) return -1;
+                        })
+    }
+
+    </script>
+  </body>
+
+</html>

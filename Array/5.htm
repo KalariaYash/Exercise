@@ -1,0 +1,30 @@
+<!-- Write a JavaScript program which accept a number as input and insert dashes (-) between each two even number -->
+<!DOCTYPE html>
+<html>
+
+  <head> </head>
+
+  <body>
+    <script>
+       let i = 0;
+       let number = +prompt( "Enter a number" , 0);
+       while ( number == "" || isNaN(number)) {
+        number = +prompt( "Please enter a valid number" , 0);  
+       }
+       
+       alert ( enterDasheshBetweenEvenDigits(number) );
+
+       function enterDasheshBetweenEvenDigits (num) {
+           num = "" + num;
+           for ( i=1; i < num.length ; i++) {
+               if ( (num.charAt(i-1) % 2 == 0) && (num.charAt(i) % 2 ==0) ) {
+                   num = num.slice(0, i) + "-" + num.slice(i);
+               }
+           }
+           return num;
+       }
+
+    </script>
+  </body>
+
+</html>

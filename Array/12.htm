@@ -1,0 +1,40 @@
+<!-- Write a JavaScript function to remove. 'null', '0', '""', 'false', 'undefined' and 'NaN' values from an array. -->
+<!DOCTYPE html>
+<html>
+
+  <head> </head>
+
+  <body>
+    <script>
+       
+       let array = takeInputsForArray();
+       alert ( removeUnnecessaryElementsFromArray ( array ));
+       
+       function takeInputsForArray() {
+           let arr = new Array();
+           let i = 0;
+           while ( true ) {
+               arr[i] = +prompt( `Please enter any number for Array and enter -1 to stop` , 0);
+               if (arr[i] == -1) {
+                   arr.pop();
+                   return arr;
+                   break;
+               }
+               i++;
+            }
+        }
+        function removeUnnecessaryElementsFromArray (arr) {
+            let i = 0;
+            for (i = 0; i < arr.length; i++ ) {
+                if ( arr[i] == null || arr[i] == 0 || arr[i] == "" || arr[i] == false || arr[i] == undefined || isNaN(arr[i] ) ) {
+                    arr.splice ( i, 1);
+                    i--;
+                }
+            }
+            return arr;
+        }
+
+    </script>
+  </body>
+
+</html>

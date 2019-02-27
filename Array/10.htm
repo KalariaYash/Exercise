@@ -1,0 +1,49 @@
+<!-- Write a JavaScript program to shuffle an array -->
+<!DOCTYPE html>
+<html>
+
+  <head> </head>
+
+  <body>
+    <script>
+       let arr = new Array();
+       let i = 0;
+       let j = 0;
+       let tempIndex = 0;
+       let temp = 0;
+       while ( true ) {
+           arr[i] = prompt( "Please enter an array element and enter exit to stop" , 0);
+           while ( arr[i] == "" )  {
+              arr[i] = prompt( "Please enter non-empty array element and enter exit to stop" , "something");
+            }
+            
+            if (arr[i] == "exit") {
+                arr.pop();
+                break;
+            }
+            i++;
+        }
+        
+        alert ( shuffleArray( arr ) );
+        
+        function randomRange(min, max) {
+             return ~~(Math.random() * (max - min + 1)) + min ;
+        }
+
+        function shuffleArray ( array ) {
+            i = 0;
+            j = array.length ;
+            while ( i < array.length - 1) {
+                tempIndex = randomRange( i , j );
+                temp = array[i];
+                array[i] = array [tempIndex];
+                array[tempIndex] = temp;
+                i++;
+            }
+            return array;
+        }
+
+    </script>
+  </body>
+
+</html>

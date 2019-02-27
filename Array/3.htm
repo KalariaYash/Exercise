@@ -1,0 +1,18 @@
+<!-- 3. Write a JavaScript function to get the first n elements of an array. -->
+<!DOCTYPE html>
+<html>
+
+  <head> </head>
+
+  <body>
+    <script>
+       let array = [1, 2, 5, 7];
+       alert ( getFirstNElements(array, 2) );
+       
+       function getFirstNElements ( arr, n ) {
+           return arr.splice(0, n);
+       }
+    </script>
+  </body>
+
+</html>

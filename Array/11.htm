@@ -1,0 +1,51 @@
+<!-- There are two arrays with individual values, write a JavaScript program to compute the sum of each individual index value from the given arrays.  -->
+<!DOCTYPE html>
+<html>
+
+  <head> </head>
+
+  <body>
+    <script>
+
+       let arr1 = takeInputsForArray('1');
+       let arr2 = takeInputsForArray('2');
+
+       alert ( addTwoArrays ( arr1, arr2 ) );
+
+       function takeInputsForArray(n) {
+           let arr = new Array();
+           let i = 0;
+           while ( true ) {
+               arr[i] = +prompt( `Please enter any number for Array${n} and enter -1 to stop` , 0);
+               while ( arr[i] == "" || isNaN(arr[i]))  {
+                   arr[i] = +prompt( `Please enter valid number for Array${n} and enter -1 to stop` , 0);
+                   if ( arr[i] == -1) break;
+               }
+            
+               if (arr[i] == -1) {
+                   arr.pop();
+                   return arr;
+                   break;
+               }
+               i++;
+            }
+        }
+
+        function addTwoArrays ( array1, array2 ) {
+            if ( array1.length >= array2.length ) {
+                return add( array1, array2, array2.length ) ;
+            }
+            else return add( array2, array1, array1.length );
+        }
+
+        function add ( array1, array2, length ) {
+            for ( i = 0; i < length; i++ ) {
+                array1[i] += array2[i];
+            }
+            return array1;
+        }
+
+    </script>
+  </body>
+
+</html>

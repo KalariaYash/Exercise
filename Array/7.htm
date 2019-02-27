@@ -1,0 +1,31 @@
+<!-- Write a JavaScript program which accept a string as input and swap the case of each character. -->
+<!DOCTYPE html>
+<html>
+
+  <head> </head>
+
+  <body>
+    <script>
+       let i = 0;
+       let str = prompt( "Enter a String" );
+       while ( str == "" ) {
+          str = prompt( "Please enter a valid string" );  
+       }
+       
+       alert ( changeTheCaseOfTheGivenString(str) );
+
+       function changeTheCaseOfTheGivenString (string) {
+           let answer = "";
+           for ( i=0 ; i < string.length ; i++) {
+              if (string.charAt(i) == string.charAt(i).toUpperCase()) {
+                 answer += string.charAt(i).toLowerCase();
+              }
+              else answer += string.charAt(i).toUpperCase();
+           }
+           return answer;
+       }
+
+    </script>
+  </body>
+
+</html>
