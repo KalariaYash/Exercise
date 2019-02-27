@@ -18,6 +18,7 @@
 
        let arr = new Array();
        let i = 0;
+       let tempArray = new Array();
 
        while ( true ) {
            arr[i] = prompt( "Please enter an array element and enter exit to stop" , 0);
@@ -32,24 +33,23 @@
             i++;
         }
 
-        let first = +prompt( "Enter the index of first element that you want to exchange" );
-        first = checkIndex( arr, first );
+        let old = +prompt( "Enter the index of element that you want to change" );
+        old = checkIndex( arr, old );
             
-        let second = +prompt( "Enter the index of the second element that you want to exchange" );
-        second = checkIndex( arr, second );
+        let provided = +prompt( "Enter the index where you want to put the above specified element" );
+        provided = checkIndex( arr, provided );
             
-        alert ( exchangeTwoArrayElements ( arr, first, second) );
+        alert ( exchangeTwoArrayElements ( arr, old, provided) );
 
         function exchangeTwoArrayElements ( array , first, second ) {
-
-            let temp = array[first];
-            array[first] = array[second];
-            array[second] = temp;
-            return array; 
+            let timepass = array.splice(first, 1) ;
+            if( second < 0) { second += array.length +1 }
+            tempArray = tempArray.concat( array.slice(0 , second), timepass, array.slice(second,array.length) );
+            return tempArray;
         }
         
         function checkIndex( arr , index ) {
-             while( isNaN (index) || index < 0 || index > (arr.length - 1)) {
+             while( isNaN (index) || index < (-arr.length) || index > (arr.length - 1)) {
                 index = +prompt("Please enter valid index");
              }
              return index;
