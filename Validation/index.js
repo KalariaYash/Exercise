@@ -1,4 +1,7 @@
-let form = document.forms.info;
+const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ ;
+const nameRegex = /^[a-z]+$/i ;
+const passwordRegex = /^[\S]{8,}$/ ;
+
 firstname.addEventListener("blur", validationForName);
 firstname.addEventListener("focus", focusForEveryInputElement);
 firstname.addEventListener("input", onInputForName);
@@ -16,19 +19,12 @@ password.addEventListener("focus", focusForEveryInputElement);
 password.addEventListener("input", onInputForPassword);
 submit.addEventListener("click", processSubmit);
 
-document.getElementById("submit").disabled = true;
-
 function checkForSubmit(){
-    if(!document.getElementsByClassName("invalid")[0]){
-        document.getElementById("submit").disabled = false;
-    }
-    else{
-        document.getElementById("submit").disabled = true;
-    }
+    document.getElementById("submit").disabled = document.getElementsByClassName("invalid")[0];
 }
 
 function validationForName (){
-    if(!(/^[a-z]+$/i.test(this.value))){
+    if(!(nameRegex.test(this.value))){
        let temp=this.id;
        if(this.value){
             forBlur(temp, "Please only enter alphabets");
@@ -40,7 +36,7 @@ function validationForName (){
 }
 
 function onInputForName(){
-    if(!(/^[a-z]+$/i.test(this.value))){
+    if(!(nameRegex.test(this.value))){
         this.classList.add('invalid');
     }
     else{
@@ -56,16 +52,15 @@ function focusForEveryInputElement(){
 }
 
 function validationForEmail(){
-    let x = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ ;
-    if(!x.test(this.value)){
+    
+    if(!emailRegex.test(this.value)){
         let temp = this.id;
         forBlur(temp, "Please enter valid email address")
     }
 }
 
 function onInputForEmail(){
-    let x = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ ;
-    if(!x.test(this.value)){
+    if(!emailRegex.test(this.value)){
         this.classList.add('invalid');
     }
     else{
@@ -75,14 +70,14 @@ function onInputForEmail(){
 }
 
 function validationForPassword (){
-    if(!(/^[\S]{8,}$/.test(this.value))){
+    if(!(passwordRegex.test(this.value))){
        let temp=this.id;
        forBlur(temp, "Password must be atleast of length 8");
     }
 }
 
 function onInputForPassword(){
-    if(!(/^[\S]{8,}$/.test(this.value))){
+    if(!(passwordRegex.test(this.value))){
         this.classList.add('invalid');
     }
     else{
@@ -94,30 +89,30 @@ function onInputForPassword(){
 function processSubmit(){
     submit.disabled = true;
     let radios = document.getElementsByTagName('input');
-    function checkRadios(){
+    function checkedRadio(){
         for (let i = 0; i < radios.length; i++) {
             if (radios[i].type === 'radio' && radios[i].checked) {
                 return radios[i].value;       
             }
          }
     }
-    function checkCheckboxes(){
+    function checkedCheckboxes(){
         let value = new Array();
-        let j = 0;
         for (let i = 0; i < radios.length; i++) {
             if (radios[i].type === 'checkbox' && radios[i].checked) {
-             value[j] = radios[i].value;   
-             j++    
+             value.push(radios[i].value);    
             }
          }
          return value;
     }
-    let rowElement = '<tr><td>' + firstname.value + '</td><td>' + lastname.value + '</td><td>' + middlename.value + '</td><td>' + email.value + '</td><td>' + password.value + '</td><td>' + checkRadios() + '</td><td>' + checkCheckboxes() + '</td></tr>' ; 
+    let rowElement = '<tr>\n  <td>' + firstname.value + '</td>\n  <td>' + lastname.value + '</td>\
+\n  <td>' + middlename.value + '</td>\n  <td>' + email.value + '</td>\
+\n  <td>' + password.value + '</td>\n  <td>' + checkedRadio() + '</td>\
+\n  <td>' + checkedCheckboxes() + '</td>\n</tr>' ; 
     DataTable.innerHTML+=rowElement;
 }
 
 function forBlur(temp, message){
-    //document.getElementById(temp).classList.add('invalid');
     document.getElementById("error" + temp).innerHTML = message;
  }
         
