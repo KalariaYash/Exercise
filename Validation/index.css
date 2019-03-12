@@ -1,0 +1,54 @@
+* {
+    box-sizing: border-box;
+  }
+html, body {
+    height: 100%;
+    width: 100%;
+  }
+.table {
+    width: 60%;
+}
+#firstname, #lastname, #middlename, #email, #password, #submit, #reset {
+    width: 50%;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  .error {
+      color: rgb(245, 6, 6);
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  th {
+      background-color: tomato;
+      color: white;
+      
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+  .form {
+      width: 40%;
+  }
+
+  .column {
+      float: left;
+      padding: 10px;
+      display: inline;
+}
+body{
+    font-size: 1vw;
+}
+input{
+    font-size: 0.8vw;
+    padding: 5px;
+}

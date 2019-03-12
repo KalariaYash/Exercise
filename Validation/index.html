@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+<div>
+<div class="form column">
+<form name="info">
+  First name:<br>
+  <input type="text" name="firstname" class="invalid" id="firstname" placeholder="Enter your first name" autofocus >
+  <div class="error" id="errorfirstname"></div>
+  <br>
+  Last name:<br>
+  <input type="text" name="lastname" class="invalid" id="lastname" placeholder="Enter your last name">
+  <div class="error" id="errorlastname"></div>
+  <br>
+  Middle name:<br>
+  <input type="text" name="middlename" class="invalid" id="middlename" placeholder="Enter your middle name">
+  <div class="error" id="errormiddlename" style="color:red" ></div>
+  <br>
+  Email:<br>
+  <input type="email" name="email" id="email" class="invalid" placeholder="Enter your email">
+  <div class="error" id="erroremail"></div>
+  <br>
+  Password:<br>
+  <input type="password" name="password" id="password" class="invalid" placeholder="password">
+  <div class="error" id="errorpassword"></div>
+  <br>
+  Gender:<br>
+  <input type="radio" name="gender" value="Male" id="male" checked> Male<br>
+  <input type="radio" name="gender" value="Female" id="female"> Female<br>
+  <input type="radio" name="gender" value="Other" id="other" > Other<br>
+  <br>
+  Hobbies:<br>
+  <input type="checkbox" name="Sport" value="Sport" id="sport">Sport<br>
+  <input type="checkbox" name="Travelling" value="Travelling" id="travelling">Travelling<br>
+  <input type="checkbox" name="Reading" value="Reading" id="reading">Reading<br>
+  <input type="checkbox" name="Cooking" value="Cooking" id="cooking">Cooking<br>
+  <br>
+  <input type="submit" value="Submit" id="submit" disabled title="Please fill every fild properly to enable submit button">
+  <input type="reset" value="Reset" id="reset">
+</form>
+</div>
+
+<div class="table column">
+    <table id="DataTable">
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Middle Name</th>
+          <th>Email</th>
+          <th>Password</th>
+          <th>Gender</th>
+          <th>Hobbies</th>
+        </tr>
+    </table>
+</div>
+</div>
+
+<script src="index.js"></script>
+</body>
+</html>
